@@ -1,0 +1,5 @@
+FLASK_ENV = 'development'
+DEBUG=True
+SECRET_KEY='p9Bv<3Eid9%$i01'
+SQLALCHEMY_DATABASE_URI='sqlite:////tmp/dompetku.db'
+SQLALCHEMY_TRACK_MODIFICATIONS=True
