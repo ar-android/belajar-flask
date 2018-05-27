@@ -1,0 +1,77 @@
+
+{% extends "base_auth.html" %}
+{% block title %}Dompetku - Login{% endblock %}
+{% block body %}
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- Branding Image -->
+             <a class="navbar-brand" href="/">Dompet</a>
+        </div><!-- Right Side Of Navbar -->
+        <div class="nav navbar-nav navbar-right" style="margin: 0;">
+            <!-- Authentication Links -->
+            <a class="xs-navbar" href="/login">Login</a> <a class="xs-navbar" href="/register">Register</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Register</h3>
+        </div>
+        <div class="panel-body">
+          <form action="/register" class="form-horizontal" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="name">Nama</label>
+              <div class="col-md-6">
+                <input autofocus="" class="form-control" id="name" name="name" required="" type="text" value="{{ old('name') }}">
+                {% if errors['name'] %}
+                    <span>{{ errors['name'] }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="email">Email</label>
+              <div class="col-md-6">
+                <input class="form-control" id="email" name="email" required="" type="email" value="{{ old('email') }}">
+                {% if errors['email'] %}
+                    <span>{{ errors['email'] }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="password">Password Baru</label>
+              <div class="col-md-6">
+                <input class="form-control" id="password" name="password" required="" type="password">
+                {% if errors['password'] %}
+                    <span>{{ errors['password'] }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="password-confirm">Ulangi Password Baru</label>
+              <div class="col-md-6">
+                <input class="form-control" id="password-confirm" name="password_confirmation" required="" type="password">
+                {% if errors['password_confirmation'] %}
+                    <span>{{ errors['password_confirmation'] }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-6 col-md-offset-4">
+                <button class="btn btn-primary" type="submit">Register</button> <a class="btn btn-link" href="/login">Saya sudah mendaftar</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Styles -->
+    <link href="/static/app.css" rel="stylesheet">
+    <link href="/static/guest.css" rel="stylesheet">
+
+    </head>
+<body>
+    <div class="container">
+      {% block body %}
+      {% endblock %}
+      <footer class="footer">
+          <p>&copy; 2018 Ahmad Rosid.</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+</body>
+</html>

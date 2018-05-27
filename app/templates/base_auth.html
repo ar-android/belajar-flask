@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <title>{% block title %}{% endblock %}</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="/static/app.css">
+  <link media="all" type="text/css" rel="stylesheet" href="/static/jquery.datetimepicker.css">
+
+  <!-- Scripts -->
+  <script src="/static/app.js"></script>
+  <script src="/static/jquery.datetimepicker.js"></script>
+</head>
+<body>
+  <div id="app">
+    {% block body %}
+    {% endblock %}
+  </div>
+</body>
+</html>

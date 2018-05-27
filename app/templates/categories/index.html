@@ -1,0 +1,120 @@
+
+{% extends "base_auth.html" %}
+{% block title %}Dompetku - Categories{% endblock %}
+{% block body %}
+
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <!-- Branding Image -->
+      <a class="navbar-brand" href="/home">
+        Dompetku
+      </a>
+    </div>
+
+    <!-- Right Side Of Navbar -->
+    <div class="nav navbar-nav navbar-right" style="margin: 0;">
+      <!-- Authentication Links -->
+      <a class="xs-navbar" href="/transactions" title="Transaksi">
+          <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>&nbsp;
+          <span class="hidden-xs">Transaksi</span>
+      </a>
+      <a class="xs-navbar" href="/categories" title="Kategori">
+        <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>&nbsp;
+        <span class="hidden-xs">Kategori</span>
+      </a>
+      <a class="xs-navbar" href="/change-password" title="Ganti Password">
+        <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;
+        <span class="hidden-xs">Ganti Password</span>
+      </a>
+      <a class="xs-navbar" href="/logout">
+            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h3 class="page-header">
+    <div class="pull-right">
+      <a href="#" class="btn btn-success input-kategori">Input Kategori Baru</a>
+    </div>
+    Daftar Kategori
+    <small>Total : 2 Kategori</small>
+  </h3>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default table-responsive">
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th class="text-center">#</th>
+              <th>Nama Kategori</th>
+              <th>Deskripsi Kategori</th>
+              <th class="text-center">Pilihan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center">1</td>
+              <td>Gajian</td>
+              <td>Catatan keungan gajian saya</td>
+              <td class="text-center">
+                  <a href="/categories/edit/1" id="edit-category-1">Edit</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div id="categoryModal" class="modal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <a href="/categories" class="close">&times;</a>
+          <h4 class="modal-title">Input Kategori Baru</h4>
+        </div>
+        <form method="POST" action="/categories" accept-charset="UTF-8">
+          <div class="modal-body">
+            <div class="row">
+            <div class="col-md-6">
+            <div class="form-group required ">
+              <label for="name" class="control-label">Nama Kategori</label>&nbsp;<input class="form-control" required name="name" type="text" id="name">
+            </div>
+          </div>
+        </div>
+        <div class="form-group ">
+          <label for="description" class="control-label">Deskripsi Kategori</label>&nbsp;<textarea class="form-control" rows="3" name="description" cols="50" id="description"></textarea></div>
+        </div>
+        <div class="modal-footer">
+          <input class="btn btn-success" type="submit" value="Input Kategori Baru">
+          <a href="/categories" class="btn btn-default">Batal</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+(function () {
+
+    $('.input-kategori').click(function(e) {
+      show_input_kategori();
+    });
+
+    function show_input_kategori() {
+      $('#categoryModal').modal({
+          show: true,
+          backdrop: 'static',
+      });
+    }
+
+})();
+</script>
+
+{% endblock %}

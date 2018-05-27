@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+{% block title %}Welcome - Dompetku{% endblock %}
+{% block body %}
+<div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+         <li role="presentation" class="active"><a href="/login">Masuk</a></li>
+        <li role="presentation"><a href="/register">Daftar</a></li>
+     </ul>
+    </nav>
+    <h3 class="text-muted">Dompetku</h3>
+</div>
+
+<div class="jumbotron">
+    <h1>Dompetku</h1>
+    <p class="lead">Dompetku adalah aplikasi catatan keuangan digital untuk anda, di buat dengan flask dan python 3. Di desain untuk mudah digunakan untuk mencatat pemasukan dan pengeluaran keuangan anda.</p>
+    <p><a class="btn btn-lg btn-success" href="/register" role="button">Dafatar Sekarang</a></p>
+</div>
+
+<div class="row marketing">
+    <div class="row">
+        <div class="col-lg-4">
+            <h4>Tujuan</h4>
+            <p>Memudahkan pembukuan keuangan secara digital.</p>
+        </div>
+        <div class="col-lg-8">
+            <h4>Konsep</h4>
+            <p>Untuk memudahkan pembukuan keungan digital anda berikut ini fitur yang tersedia di Dompetku:</p>
+            <ul>
+                <li>Mendaftar jadi user.</li>
+                <li>Anda dapat melihat riwayat transaksi berdasarkan tanggal.</li>
+                <li>Anda dapat menambahkan catatan pemasukan dan pengeluaran keuangan.</li>
+                <li>Anda dapat mengkategorikan catatan transaksi.</li>
+                <li>Anda dapat melihat ringkasan transaksi tiap bulan atau tiap tahun.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
