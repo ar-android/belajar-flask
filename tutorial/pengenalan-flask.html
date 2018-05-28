@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Pengenalan Flask - Belajar Flask</title><!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i" rel="stylesheet"><!-- Style -->
+  <link href="https://codecast.test/css/dist.css" rel="stylesheet" type="text/css">
+</head>
+<body class="bg-white font-source-sans">
+  <header class="bg-white py-4 px-8 border-b-4 border-blue">
+    <div class="lg:w-4/5 xs:w-full container mx-auto flex justify-between items-center">
+      <div class="border border-transparent">
+        <a class="text-2xl font-thin text-grey-darker tracking-wide no-underline" href="/">Belajar Flask</a>
+      </div>
+      <div class="sm:block md:hidden lg:hidden">
+        <svg class="fill-current text-black inline-block h-6 w-6" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg>
+      </div>
+      <div class="xs:hidden sm:hidden md:block">
+        <a class="text-sm font-thin mr-6 no-underline text-black hover:text-blue" href="../about.html">About</a>
+        <a class="text-sm font-thin mr-6 no-underline text-black hover:text-blue" href="../hire-me.html">Hire Me</a>
+      </div>
+    </div>
+  </header>
+  <section class="py-8 bg-white flex justify-center">
+    <div class="sm:w-4/5 lg:w-3/5 xs:w-full">
+      <div class="xs:px-4 xs:flex-row md:flex lg:flex items-center">
+        <div class="xs:flex items-center justify-center">
+          <img class="rounded-full" height="70" src="https://cdn-images-1.medium.com/fit/c/60/60/1*tTlJFOCGwUwKxBvUm9z1ZA.jpeg" width="70dp">
+        </div>
+        <div class="xs:text-center xs:mt-4 lg:text-left sm:text-left sm:px-4 lg:m-0">
+          <h3 class="py-0">Ahmad Rosid</h3>
+          <p class="text-grey-darker text-sm font-thin py-1">https://ahmadrosid.com The more I learn, the more I realize how much I don’t know.</p>
+          <p class="text-grey-darker text-sm font-thin py-0">May 28, 2018</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-blue flex justify-center py-8 px-4">
+    <div class="w-3/5 text-white my-8 py-8">
+      <h1 class="text-5xl font-sans text-center">Pengenalan Flask</h1>
+      <div class="flex justify-center mb-8">
+        <div class="my-2 w-24 border border-white border-t-2"></div>
+      </div>
+      <p class="text-2xl font-sans text-center">Apa itu flask kenapa harus belajar flask?</p>
+    </div>
+  </section>
+
+  <section class="bg-white flex justify-center py-8 text-grey-darkest">
+    <div class="md:w-4/5 lg:w-3/5 sm:px-4 xs:px-4 lg:px-2">
+      <div class="text-lg font-light leading-normal">
+        <h1>Apa itu Flask?</h1>
+        <p>Sebelum kita membahas lebih lanjut tentang flask mari kita berkenalan dahulu dengan framework flask. Berikut ini adalah sedikit saya kutip dari website resmi flask : </p>
+        <div class="bg-blue-lightest border-l-4 border-blue text-blue-darker px-4 py-3 my-4" role="alert">
+          <p class="font-bold">From Flask website</p>
+          <p class="italic">Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions.</p>
+        </div>
+        <p>Jadi intinya flask adalah microframework python, yang di maksud dengan microframework adalah kumpulan code dasar yang bisa kita gunaka untuk membuat website dengan bahasa pemrogramman python.</p>
+        <h1>Membuat sebuah website</h1>
+        <p>Bagi kamu yang masih pemula tentu ingin tau alasan nya kenapa kamu harus belajar flask. Nah mari kita bahas sedikit kenapa kita haru belajar flask dan apa untung nya mempelajari flask ini. Jika kamu baru belajar bahasa python maka mungkin kamu akan mendapat rekomendasi dari senior - senior kamu untuk mulai belajar menggunakan framework flask ini.</p>
+        <br>
+        <p>Ketika membangun sebuah website maka banyak hal yang perlu kamu ketahui, diantaranya memilih bahasa pemrogramman yang akan kamu gunakan. Katakan kamu sudah memutuskan menggunakan bahasa python, sekarang bagaimana melakukanya? Selanjutnya kamu perlu tau hal - hal dasar tentang komponen sebuah website.</p>
+        <br>
+        <p>Paling tidak kamu harus mengetahui tentang server, karena website kita bisa di akses oleh user itu jika aplikasi web kita ini berjalan di sebuah server. Sudah tau server kamu perlu tau minimal backend dan frontend. Di backend ada beberapa prosess, misalnya pengolahan http request, database, autentikasi, mail dan masih banyak yang lainya. Sedangkan di bidang frontend kamu perlu tau html, css, javascript, responsice design dan yang lain sebagainya.</p>
+        <br>
+        <p>Bagaimana? Banyak ya hal yang harus kita kerjakan. Ya memang begitulah kenyataanya membangun sebuah website tidaklah begitu mudah. Nah berdasarkan pengalaman saya hal - hal tersebut diatas tidak harus kita pelajari semua, karena itu akan memakan waktu yang cukup lama. Kita bisa pelajari hal - hal tersebut sambil berjalan sambil kita belajar coding, sambil mengalami erorr yang mungkin akan membuat kamu frustasi. Tapi ya begitulah setelah kamu bisa nanti perjuangan belajar akan terasa nikmat.</p>
+        <h1>Kenapa flask?</h1>
+        <p>Diatas sudah sedikit kita bahas cukup panjang mengenai hal - hal dasar yang perlu kita ketahui jika kita ingin membangun sebuah website. Nah dari begitu banyak kerumitan yang harus kita hadapi Flask ini dibuat dengan harapan bisa sedikit mengurangi kerumitan yang ada.</p>
+        <br>
+        <p>Flask dibagun dengan tujuan kita bisa membuat website dengan mudah dan menyenagkan. Flask akan mengurusi tentang masalah server, orm database, dan juga terdapat berbagai macam extensions untuk memudahkan kita dalam membuat website.</p>
+        <h1>Conton Aplikasi Flask</h1>
+        <p>Berikut ini coba kita lihat contoh aplikasi sederhana dibuat dengan flask.</p>
+        <pre class="my-4 py-0">
+          <code>
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+  return "Hello World!"
+          </code>
+        </pre>
+        <p>Dan berikut ini cara menjalankan aplikasi yang telah kita buat di atas.</p>
+        <pre class="my-4 py-0">
+          <code>
+$ pip install Flask
+$ FLASK_APP=hello.py flask run
+ * Running on http://localhost:5000/
+          </code>
+        </pre>
+        <p>Bagaimana simple bukan? Tentu simple ya karena kita hanya membuat aplikasi hello world. Akan tetapi kita akan belajar secara step by step agar mudah dan cepat paham. Nah mari kita lanjutkan pada tutorial berikutnya, kita akan belajar dari nol, jadi jika kamu masih baru dan tidak mengerti banyak hal tentang python kita akan bahas dari nol sampi membangun production apps, mudah - mudahan kamu cepat bisa ya.</p>
+        <h3>Next</h3>
+        <a href="../tutorial/installasi.html" class="no-underline">
+          <div class="bg-blue-lightest border-t border-b border-blue text-blue-dark px-4 py-3" role="alert">
+            <p class="font-bold">Installasi Python</p>
+            <p class="text-sm">Apa saja yang perlu di install untuk memulai belajar.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <div class="flex justify-center bg-blue py-4">
+    <p class="text-white font-light">© 2017 Codecast.id</p>
+  </div>
+</body>
+</html>
