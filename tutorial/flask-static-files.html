@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Flask Static Files - Belajar Flask</title><!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i" rel="stylesheet"><!-- Style -->
+  <link href="https://ar-android.github.io/belajar-flask/dist.css" rel="stylesheet" type="text/css">
+</head>
+<body class="bg-white font-source-sans">
+  <header class="bg-white py-4 px-8 border-b-4 border-blue">
+    <div class="lg:w-3/5 xs:w-full container mx-auto flex justify-between items-center">
+      <div class="border border-transparent">
+        <a class="text-2xl font-thin text-grey-darker tracking-wide no-underline" href="../">Belajar Flask</a>
+      </div>
+      <div class="sm:block md:hidden lg:hidden">
+        <svg class="fill-current text-black inline-block h-6 w-6" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg>
+      </div>
+      <div class="xs:hidden sm:hidden md:block">
+        <a class="text-sm font-thin mr-6 no-underline text-black hover:text-blue" href="../about.html">About</a>
+        <a class="text-sm font-thin mr-6 no-underline text-black hover:text-blue" href="../hire-me.html">Hire Me</a>
+      </div>
+    </div>
+  </header>
+  <section class="py-8 bg-white flex justify-center">
+    <div class="sm:w-4/5 lg:w-3/5 xs:w-full">
+      <div class="xs:px-4 xs:flex-row md:flex lg:flex items-center">
+        <div class="xs:flex items-center justify-center">
+          <img class="rounded-full" height="70" src="https://cdn-images-1.medium.com/fit/c/60/60/1*tTlJFOCGwUwKxBvUm9z1ZA.jpeg" width="70dp">
+        </div>
+        <div class="xs:text-center xs:mt-4 lg:text-left sm:text-left sm:px-4 lg:m-0">
+          <h3 class="py-0">Ahmad Rosid</h3>
+          <p class="text-grey-darker text-sm font-thin py-1">https://ahmadrosid.com The more I learn, the more I realize how much I don’t know.</p>
+          <p class="text-grey-darker text-sm font-thin py-0">May 28, 2018</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-blue flex justify-center py-8 lg:px-4 xs:px-0 text-center">
+    <div class="w-full text-white my-8 py-8">
+      <h1 class="text-5xl font-sans text-center">Flask Static Files</h1>
+      <div class="flex justify-center mb-8">
+        <div class="my-2 w-24 border border-white border-t-2"></div>
+      </div>
+      <p class="text-2xl font-sans text-center">Mengakses file yang tidak berubah pada aplikasi flask.</p>
+    </div>
+  </section>
+
+  <section class="bg-white flex justify-center py-8 text-grey-darkest">
+    <div class="md:w-4/5 lg:w-3/5 xs:w-full sm:px-4 xs:px-4 lg:px-2">
+      <div class="text-lg font-light leading-normal">
+        <h1 id="files">Files</h1>
+        <p>Pada tutorial sebelumnya kita sudah bahas tentang routing, atau tehnik bagaimana cara melakukan atau mengolah navigasi pada aplikasi flask.</p>
+        <a href="../tutorial/flask-routing.html" class="no-underline">
+          <div class="bg-blue-lightest border-t border-b border-blue text-blue-dark px-4 py-3 my-6" role="alert">
+            <p class="font-bold">Sebelumnya ( Flask Routing )</p>
+            <p class="text-sm">Memahami routing pada flask</p>
+          </div>
+        </a>
+        <p>Sebuah web yang cukup kompleks tentu akan memiliki data yang dinamis, nah akan tetapi ada data - data yang tidak berubah seperti halnya gambar, video, audio, file css, file js dan yang lainya. Pada aplikasi flask untuk mengakses sebuah file static atau file yang tidak berubah secara dinamis maka kita perlu melakukan hal berikut ini.</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+|---app
+    |---app.py
+    |---static
+        |---app.css
+        |---img
+            |---profile.jpg
+          </code>
+        </pre>
+        <p>Jadi diatas adalah contoh struktur project aplikasi flask sederhana, jadi ketika kita ingin mengkases file static maka yang pertama adalah kita perlu menaruh file static tersebut pada folder <code class="font-mono text-sm bg-grey p-1 font-bold">/static</code>. Dan untuk mengkasesnya seperti berikut ini :</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+from flask import Flask, redirect, url_for
+
+app = Flask(__name__)
+
+@app.route('/assets/css/style.css')
+def stylesheet():
+  return redirect(url_for('static', filename='app.css'))
+
+app.run()
+          </code>
+        </pre>
+        <p>Atau kita juga bisa mengkases secara static dengan cara berikut ini :</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+<span class="text-grey">// URL</span>
+http://localhost:5000/static/app.css
+
+<span class="text-grey">// Link</span>
+<span><</span>a href="http://localhost:5000/static/app.css"><span><</span>/a>
+
+<span class="text-grey">// Jinja</span>
+<span><</span>a href="http://localhost:5000/static/app.css"><span><</span>/a>
+          </code>
+        </pre>
+        <h1>Static Folder</h1>
+        <p>Yang penting perlu diketahui juga adalah direktori yang di akses oleh static files pada flask ini adalah berada di root instance flask di buat. Misalkan seperti berikut ini :</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+|---project-folder-name
+    |---app
+        |---__init__.py
+        |---static
+            |---app.css
+            |---img
+                |---profile.jpg
+    |---app.py
+    |---config.py
+    |---run.py
+          </code>
+        </pre>
+        <p>Pada contoh struktur folder project diatas kita membuat dua instance flask yaitu pada file <span class="font-bold">__init__.py</span> dan <span class="font-bold">app.py</span>. Jika kita menjalankan aplikasi flask yang di <span class="font-bold">app.py</span> maka folder static tidak terdeteksi oleh flask karena folder static adalah sub folder dari <span class="font-bold">app</span>. Akan tetapi jika kita menjalankan <span class="font-bold">run.py</span> maka folder static akan terdeteksi akan tetapi kita menjalankan instance flask yang ada di folder <span class="font-bold">app</span>. Nah untuk itu maka pada file <span class="font-bold">run.py</span> menjadi seperti berikut ini :</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+from app import app
+
+if __name__ == '__main__':
+  app.run()
+          </code>
+        </pre>
+        <p>Dan pada file <span class="font-bold">app/__init__.py</span> seperti ini :</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+from flask import Flask
+
+app = Flask(__name__)
+
+<span class="text-grey">// app setup </span>
+          </code>
+        </pre>
+        <h3>Next</h3>
+        <a href="../tutorial/flask-routing.html" class="no-underline">
+          <div class="bg-blue-lightest border-t border-b border-blue text-blue-dark px-4 py-3" role="alert">
+            <p class="font-bold">Selanjutnya - Flask Rendering Templates</p>
+            <p class="text-sm">Memproses tampilan web untuk user.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <div class="flex justify-center bg-blue py-4">
+    <p class="text-white font-light">© 2017 Codecast.id</p>
+  </div>
+</body>
+</html>

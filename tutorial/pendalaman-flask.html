@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Pendalaman Flask - Belajar Flask</title><!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i" rel="stylesheet"><!-- Style -->
+  <link href="https://ar-android.github.io/belajar-flask/dist.css" rel="stylesheet" type="text/css">
+</head>
+<body class="bg-white font-source-sans">
+  <header class="bg-white py-4 px-8 border-b-4 border-blue">
+    <div class="lg:w-3/5 xs:w-full container mx-auto flex justify-between items-center">
+      <div class="border border-transparent">
+        <a class="text-2xl font-thin text-grey-darker tracking-wide no-underline" href="../">Belajar Flask</a>
+      </div>
+      <div class="sm:block md:hidden lg:hidden">
+        <svg class="fill-current text-black inline-block h-6 w-6" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg>
+      </div>
+      <div class="xs:hidden sm:hidden md:block">
+        <a class="text-sm font-thin mr-6 no-underline text-black hover:text-blue" href="../about.html">About</a>
+        <a class="text-sm font-thin mr-6 no-underline text-black hover:text-blue" href="../hire-me.html">Hire Me</a>
+      </div>
+    </div>
+  </header>
+  <section class="py-8 bg-white flex justify-center">
+    <div class="sm:w-4/5 lg:w-3/5 xs:w-full">
+      <div class="xs:px-4 xs:flex-row md:flex lg:flex items-center">
+        <div class="xs:flex items-center justify-center">
+          <img class="rounded-full" height="70" src="https://cdn-images-1.medium.com/fit/c/60/60/1*tTlJFOCGwUwKxBvUm9z1ZA.jpeg" width="70dp">
+        </div>
+        <div class="xs:text-center xs:mt-4 lg:text-left sm:text-left sm:px-4 lg:m-0">
+          <h3 class="py-0">Ahmad Rosid</h3>
+          <p class="text-grey-darker text-sm font-thin py-1">https://ahmadrosid.com The more I learn, the more I realize how much I don’t know.</p>
+          <p class="text-grey-darker text-sm font-thin py-0">May 28, 2018</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-blue flex justify-center py-8 lg:px-4 xs:px-0 text-center">
+    <div class="w-full text-white my-8 py-8">
+      <h1 class="text-5xl font-sans text-center">Pendalaman Flask</h1>
+      <div class="flex justify-center mb-8">
+        <div class="my-2 w-24 border border-white border-t-2"></div>
+      </div>
+      <p class="text-2xl font-sans text-center">Apa saja bagaimana konsep framework Flask.</p>
+    </div>
+  </section>
+
+  <section class="bg-white flex justify-center py-8 text-grey-darkest">
+    <div class="md:w-4/5 lg:w-3/5 xs:w-full sm:px-4 xs:px-4 lg:px-2">
+      <div class="text-lg font-light leading-normal">
+        <h1>Flask</h1>
+        <p>Pada tutorial <a href="../tutorial/installasi-flask.html">sebelumnya</a> kita sudah bahas panjang lebar cara install flask framework ke komputer kita dengan python package manager <code class="font-mono bg-grey-light p-1 text-sm">pip</code>.</p>
+        <a href="../tutorial/installasi-flask.html" class="no-underline">
+          <div class="bg-blue-lightest border-t border-b border-blue text-blue-dark px-4 py-3 my-6" role="alert">
+            <p class="font-bold">Sebelumnya ( Installasi Flask )</p>
+            <p class="text-sm">Menginstall Flask framework</p>
+          </div>
+        </a>
+        <p>Ok sebelum lanjut koding kita akan bahas dulu konsep dasar dari flask ini. Pada dasarnya flask adalah kumpulan kode untuk membantu kita membuat website dengan bahasa python. Flask di bagung di atas framework <a href="https://www.palletsprojects.com/p/werkzeug/"> Werkzeug</a> dan <a href="https://www.palletsprojects.com/p/jinja/">Jinja.</a> Mari kita bahas terlebih dahulu apa itu <a href="https://www.palletsprojects.com/p/werkzeug/"> Werkzeug</a> dan <a href="https://www.palletsprojects.com/p/jinja/">Jinja.</a></p>
+        <h1>Werkzeug</h1>
+        <p><a href="https://www.palletsprojects.com/p/werkzeug/"> Werkzeug</a> adalah sebuat package python yang didalamnya terdapat komponen - komponen dasar yang sering digunakan didalam pengembangan aplikasi web dengan python. Berkut ini adalah komponen yang terdapat pada <a href="https://www.palletsprojects.com/p/werkzeug/"> Werkzeug</a> :</p><br>
+        <ul class="leading-normal">
+          <li>HTTP header parsing and dumping</li>
+          <li>Request and response object</li>
+          <li>URI and IRI utilities with unicode awareness</li>
+          <li>Basic session and signed cookie support</li>
+          <li>Integrated routing system for matching URLs to endpoints and vice versa</li>
+          <li>Dan masih banyak yang lain silahkan <a href="https://www.palletsprojects.com/p/werkzeug/">cek disini</a></li>
+        </ul><br>
+        <p>Inti dari Werkzeug ini adalah kumpulan komponen yang nanti akan kita gunakan sebagai urusan backend, seperti routing htpp server dan yang lain sebagainya.</p>
+        <h1 id="jinja">Jinja</h1>
+        <p>Jika dengan werkzeug kita sudah bahas bagaimana nanti segala urusan backend akan dihandle, maka pada jinja berguna untuk mengurusi frontend.</p>
+        <div class="bg-blue-lightest border-l-4 border-blue text-blue-darker px-4 py-3 my-4" role="alert">
+          <p class="font-bold">What is Jinja?</p>
+          <p class="italic">Jinja2 is a full-featured template engine for Python. It has full unicode support, an optional integrated sandboxed execution environment, widely used and BSD licensed.</p>
+        </div>
+        <p><a href="https://www.palletsprojects.com/p/jinja/">Jinja</a> adalah python templating engine yang berguna untuk mengurusi masalah tampilan dari sebuah website yang sedang kita buat. Mungkin sebagia dari teman - teman sudah tahu html dan css, nah pada dasarnya jinja ini nanti akan digunakan untuk mengurusi html, seperti misalanya menampilkan list data dari database, atau apa saja yang akan di tampilkan pada html dalam kondisi tertentu. Berikut ini adalah contoh penggunaan jinja :</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+{% <span class="font-bold">extends</span> <span class="text-green">"layout.html"</span> %}
+{% <span class="font-bold">block</span> body %}
+  <span><</span>ul<span>></span>
+  {% for user in users %}
+    <span><</span>li<span>></span><span><</span>a href="{{ user.url }}">{{ user.username }}<span><</span>/a><span><</span>/li>
+  {% endfor %}
+  <span><</span>/ul>
+{% <span class="font-bold">endblock</span> %}
+          </code>
+        </pre>
+        <p>Kita akan bahas lebih lengkap tentang jinja sembari nanti praktek membuat web dengan flask ini.</p>
+        <h1>Fitur Pada Flask</h1>
+        <p>Berikut ini adalah fitur yang terdapat pada flask :</p>
+        <br>
+        <ul class="leading-normal">
+          <li>Built-in development server and <a href="http://flask.pocoo.org/docs/quickstart/#debug-mode">debugger</a></li>
+          <li>Integrated <a href="http://flask.pocoo.org/docs/testing/">unit testing support</a></li>
+          <li>RESTful <a href="http://flask.pocoo.org/docs/quickstart/#routing">request dispatching</a></li>
+          <li>Uses <a href="http://jinja.pocoo.org/docs/">Jinja2 templating</a></li>
+          <li>Support for <a href="http://flask.pocoo.org/docs/quickstart/#sessions">secure cookies</a> (client side sessions)</li>
+          <li>100% <a href="http://www.python.org/dev/peps/pep-0333/">WSGI</a> 1.0 compliant</li>
+          <li>Unicode based</li>
+          <li>extensively <a href="http://flask.pocoo.org/docs/">documented</a></li>
+        </ul>
+        <br>
+        <p>Bukan hanya itu saja flask juga memiliki extensions yang nanti kita akan kita bahas pada tutorial selanjutnya, intinya dari semua hal ini adalah memberi kemudahan bagi kita untuk membuat sebuah aplikasi web dengan flask ini.</p>
+        <h3>Next</h3>
+        <a href="../tutorial/flask-routing.html" class="no-underline">
+          <div class="bg-blue-lightest border-t border-b border-blue text-blue-dark px-4 py-3" role="alert">
+            <p class="font-bold">Selanjutnya - Flask Routing</p>
+            <p class="text-sm">Bagaimana memproses url pada flask.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <div class="flex justify-center bg-blue py-4">
+    <p class="text-white font-light">© 2017 Codecast.id</p>
+  </div>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>Installasi - Belajar Flask</title><!-- Fonts -->
+  <title>Flask Render Templates - Belajar Flask</title><!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i" rel="stylesheet"><!-- Style -->
   <link href="https://ar-android.github.io/belajar-flask/dist.css" rel="stylesheet" type="text/css">
 </head>
@@ -12,7 +12,7 @@
   <header class="bg-white py-4 px-8 border-b-4 border-blue">
     <div class="lg:w-3/5 xs:w-full container mx-auto flex justify-between items-center">
       <div class="border border-transparent">
-        <a class="text-2xl font-thin text-grey-darker tracking-wide no-underline" href="/">Belajar Flask</a>
+        <a class="text-2xl font-thin text-grey-darker tracking-wide no-underline" href="../">Belajar Flask</a>
       </div>
       <div class="sm:block md:hidden lg:hidden">
         <svg class="fill-current text-black inline-block h-6 w-6" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -39,87 +39,77 @@
     </div>
   </section>
 
-  <section class="bg-blue flex justify-center py-8 px-4">
-    <div class="w-3/5 text-white my-8 py-8">
-      <h1 class="text-5xl font-sans text-center">Installasi Flask</h1>
+  <section class="bg-blue flex justify-center py-8 lg:px-4 xs:px-0 text-center">
+    <div class="w-full text-white my-8 py-8">
+      <h1 class="text-5xl font-sans text-center">Flask Render Templates</h1>
       <div class="flex justify-center mb-8">
         <div class="my-2 w-24 border border-white border-t-2"></div>
       </div>
-      <p class="text-2xl font-sans text-center">Apa saja yang perlu di install untuk memulai mempelajari Flask.</p>
+      <p class="text-2xl font-sans text-center">Menulis html pada aplikasi flask.</p>
     </div>
   </section>
 
   <section class="bg-white flex justify-center py-8 text-grey-darkest">
-    <div class="md:w-4/5 lg:w-3/5 sm:px-4 xs:px-4 lg:px-2">
+    <div class="md:w-4/5 lg:w-3/5 xs:w-full sm:px-4 xs:px-4 lg:px-2">
       <div class="text-lg font-light leading-normal">
-        <h1>Flask</h1>
-        <p>Pada tutorial <a href="../tutorial/installasi-python.html">sebelumnya</a> kita sudah bahas panjang lebar cara install python di beberapa sistem operasi. Selanjutnya kita perlu install flask, nah flask ini adalah sebenarnya kumpulan kode, jadi pada proses installasi flask kita akan mendownload code flask ini ke komputer kita.</p>
-        <a href="../tutorial/installasi-python.html" class="no-underline">
+        <h1 id="mvc-design-pattern">Html</h1>
+        <p>Pada tutorial sebelumnya kita sudah bahas tentang static files pada aplikasi flask, kali ini kita akan beranjak sedikit tentang HTML.</p>
+        <a href="../tutorial/flask-static-files.html" class="no-underline">
           <div class="bg-blue-lightest border-t border-b border-blue text-blue-dark px-4 py-3 my-6" role="alert">
-            <p class="font-bold">Sebelumnya ( Installasi Python )</p>
-            <p class="text-sm">Proses installasi python pada sistem operasi windows, linux dan osx.</p>
+            <p class="font-bold">Sebelumnya ( Flask Static File )</p>
+            <p class="text-sm">Mengakses statik file atau data yang tidak berubah,</p>
           </div>
         </a>
-        <p>Pada python untuk pengolahan dependency code kita kenal dengan nama pip. Ok sekarang yang pertama kita install virtual env terlebih dahulu dengan menjalankan perintah berikut ini.</p>
-        <pre class="my-6 py-0">
-          <code class="font-mono">
-pip install virtualenv
-          </code>
-        </pre>
-        <p>Selanjutnya kita install dependency flask dengan menjalankan perintah berikut ini.</p>
-        <pre class="my-6 py-0">
-          <code>
-pip install Flask
-          </code>
-        </pre>
-        <h1>Test Flask</h1>
-        <p>Sekarang kita coba buat aplikasi sederhana untuk mengecek apakah flask sudah berhasil kita install. Silahkan buat folder project nya seperti berikut ini.</p>
+        <p>Sebuah tampilan pada aplikasi web di tulis didalam bahasa HTML ( <span class="italic">Hyper Text Markup Language</span> ). Pada tutorial <a href="../tutorial/pendalaman-flask.html#jinja">pendalaman flask</a> sebelumnya kita telah membahas sedikit tentang jinja. Sebuah engine yang di pakai oleh flask untuk memanipulasi script html yang akan kita tampilkan kepada user.</p>
+        <h1>Templates</h1>
+        <p>OK yang pertama kita bahas templates pada flask, jadi templates pada flask yang dimaksud adalah file html yang bisa kita sisipi logic. Kenapa disisi logic? Ya supaya kita bisa mengoptimalkan penulisan html nya, salah satu studi kasusnya adalah kita bisa mengeksted template yang mana dengan begitu kita tidak perlu menulis kode yang sama berulang - ulang.</p>
+        <br>
+        <p>Yang pertama kita bahas terlebih dahulu adalah struktur project sederhana. Jadi file html yang akan di render secara default diletakkan pada folder templates. Berikut ini contoh strukturnya</p>
         <pre class="my-6 py-0">
           <code class="font-mono text-sm">
-sudo apt-get update
-sudo apt-get install python3.6
+|---app
+    |---app.py
+    |---static
+        |---app.css
+    |---templates
+        |---index.html
           </code>
         </pre>
-        <p>Sudah selesai, sekarang cek apakah installasi sudah berhasil dengan menjalankan perintah berikut ini.</p>
+        <p>Jadi folder templates adalah tempat kita menaruh segala file html yang akan kita gunakan, sedangkan folder static adalah tempat dimana kita akan menaruh file static seperti css misalnya.</p>
+        <h1>Render Template</h1>
+        <p>Ok sekarang bagaimana merender template atau html pada sebuah aplikasi flask? Gampang berikut ini contoh nya :</p>
         <pre class="my-6 py-0">
           <code class="font-mono text-sm">
-<span class="text-grey-dark text-xs">// Pada windows</span>
-md flask-hello-world
-
-<span class="text-grey-dark text-xs">// Linux or osx</span>
-mkdir flask-hello-world
-
-<span class="text-grey-dark text-xs">// Masuk ke dalam direktori</span>
-cd flask-hello-world
-          </code>
-        </pre>
-        <p>Sekarang silahkan copykan code dibawah ini untuk membuat aplikasi hello world sederhana simpan dengan nama file <span class="font-bold">app.py</span>.</a></p>
-        <pre class="my-6 py-0">
-          <code class="font-mono text-sm">
-from flask import Flask
-
+from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-return 'Hello, Flask!'
+  return render_template('index.html')
 
-if __name__ == '__main__':
-app.run(debug=True)
+app.run()
           </code>
         </pre>
-        <p>Sekarang kita coba jalankan aplikasi sederhana kita dengan menjalankan perintah berikut ini.</p>
+        <p>Dan berikut ini untuk file index.html : </p>
         <pre class="my-6 py-0">
           <code class="font-mono text-sm">
-FLASK_APP=app.py flask run
+<span><</span>!DOCTYPE html>
+<span><</span>html>
+<span><</span>head>
+  <span><</span>title> Welcome <<span>/</span>title>
+  <span><</span>link rel="stylesheet" type="text/css" href="/static/app.css">
+<span><</span>/head>
+<span><</span>body>
+  <span><</span>h1> Hello world <span><</span>/h1>
+<span><</span>/body>
+<span><</span>/html>
           </code>
         </pre>
-        <p>Selanjutnya silahkan buka <a target="_blank" href="http://localhost:5000/">http://localhost:5000/</a></p>
         <h3>Next</h3>
-        <a href="../tutorial/pendalaman-flask.html" class="no-underline">
+        <a href="../tutorial/flask-routing.html" class="no-underline">
           <div class="bg-blue-lightest border-t border-b border-blue text-blue-dark px-4 py-3" role="alert">
-            <p class="font-bold">Selanjutnya - Pendalaman Flask</p>
-            <p class="text-sm">Konsep dari aplikasi yang dibuat dengan flask.</p>
+            <p class="font-bold">Selanjutnya - Flask Routing</p>
+            <p class="text-sm">Bagaimana memproses url pada flask.</p>
           </div>
         </a>
       </div>

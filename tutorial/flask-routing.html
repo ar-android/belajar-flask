@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Flask Routing - Belajar Flask</title><!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i" rel="stylesheet"><!-- Style -->
+  <link href="https://ar-android.github.io/belajar-flask/dist.css" rel="stylesheet" type="text/css">
+</head>
+<body class="bg-white font-source-sans">
+  <header class="bg-white py-4 px-8 border-b-4 border-blue">
+    <div class="lg:w-3/5 xs:w-full container mx-auto flex justify-between items-center">
+      <div class="border border-transparent">
+        <a class="text-2xl font-thin text-grey-darker tracking-wide no-underline" href="../">Belajar Flask</a>
+      </div>
+      <div class="sm:block md:hidden lg:hidden">
+        <svg class="fill-current text-black inline-block h-6 w-6" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg>
+      </div>
+      <div class="xs:hidden sm:hidden md:block">
+        <a class="text-sm font-thin mr-6 no-underline text-black hover:text-blue" href="../about.html">About</a>
+        <a class="text-sm font-thin mr-6 no-underline text-black hover:text-blue" href="../hire-me.html">Hire Me</a>
+      </div>
+    </div>
+  </header>
+  <section class="py-8 bg-white flex justify-center">
+    <div class="sm:w-4/5 lg:w-3/5 xs:w-full">
+      <div class="xs:px-4 xs:flex-row md:flex lg:flex items-center">
+        <div class="xs:flex items-center justify-center">
+          <img class="rounded-full" height="70" src="https://cdn-images-1.medium.com/fit/c/60/60/1*tTlJFOCGwUwKxBvUm9z1ZA.jpeg" width="70dp">
+        </div>
+        <div class="xs:text-center xs:mt-4 lg:text-left sm:text-left sm:px-4 lg:m-0">
+          <h3 class="py-0">Ahmad Rosid</h3>
+          <p class="text-grey-darker text-sm font-thin py-1">https://ahmadrosid.com The more I learn, the more I realize how much I don’t know.</p>
+          <p class="text-grey-darker text-sm font-thin py-0">May 28, 2018</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-blue flex justify-center py-8 lg:px-4 xs:px-0 text-center">
+    <div class="w-full text-white my-8 py-8">
+      <h1 class="text-5xl font-sans text-center">Flask rounting</h1>
+      <div class="flex justify-center mb-8">
+        <div class="my-2 w-24 border border-white border-t-2"></div>
+      </div>
+      <p class="text-2xl font-sans text-center">Bagaimana proses routing pada aplikasi Flask.</p>
+    </div>
+  </section>
+
+  <section class="bg-white flex justify-center py-8 text-grey-darkest">
+    <div class="md:w-4/5 lg:w-3/5 xs:w-full sm:px-4 xs:px-4 lg:px-2">
+      <div class="text-lg font-light leading-normal">
+        <h1>Routing</h1>
+        <p>Pada tutorial sebelumnya kita sudah bahas cukup banyak komponen - komponen yang terdapat pada framework flask. Selanjutnya kita akan bahas salah satu komponen yang cukup penting pada framework flask ini.</p>
+        <a href="../tutorial/pendalaman-flask.html" class="no-underline">
+          <div class="bg-blue-lightest border-t border-b border-blue text-blue-dark px-4 py-3 my-6" role="alert">
+            <p class="font-bold">Sebelumnya ( Pendalaman Flask )</p>
+            <p class="text-sm">Komponen - komponen pada aplikasi flask</p>
+          </div>
+        </a>
+        <p>Pada aplikasi web salah satu komponen yang paling penting adalah routing, yang dimana dengan komponen ini kita bisa mengatur interakasi dari user kedalam aplikasi kita. Tujuan dari routng ini adalah supanya user lebih mudah memahami navigasi pada website kita. Keuntungan kita dari sisi pengembang adalah kita dapat mengatur navigasi pada web kita dengan mudah.</p>
+        <h1>Routing Pada Flask</h1>
+        <p>Ok sebelum lanjut koding kita akan bahas dulu rounting pada aplikasi flask, mari kita lihat kode berikut ini.</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+from flask import Flask
+app = Flask(__name__)
+
+def index():
+  return "Hello world."
+app.add_url_rule('/', 'index', index)
+
+app.run()
+          </code>
+        </pre>
+        <p>Kita juga bisa dengan cara yang lebih simple untuk membuat routing pada aplikasi flask ini.</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+@app.route('/')
+def index():
+  return "Hello world."
+          </code>
+        </pre>
+        <h1>Custom Routing</h1>
+        <p>Diatas kita sudah sedikit bahas tentang route dan bagaimana membuatnya, nah sekarang kita coba yang agak lebih sulit sedikit. Sekarang bagaimana kita mengambil data dari route dengan menginjectkan varibale kedalam route. Kita bisa lakukan seperti ini : </p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+@app.route('/hello/<name>')
+def hello_name(name):
+   return 'Hello %s!' % name
+          </code>
+        </pre>
+        <p>Nah pada browser akan kita akses sepert ini : </p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+http://127.0.0.1:5000/hello/Ahmad%20Rosid
+          </code>
+        </pre>
+        <p>Dan hasilnya akan serperti ini : </p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+Hello Ahmad Rosid!
+          </code>
+        </pre>
+        <p>Sekarang bagaimana kalau kita perlu membatasi type variable </p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+@app.route('/blog/<int:postID>')
+def show_blog(postID):
+   return 'Blog Number %d' % postID
+          </code>
+        </pre>
+        <p>Pada route diatas jika di akses maka seperti rule nya :</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+<span class="text-grey-dark">// Benar karena menggunakan integer pada varibale posID</span>
+<span class="text-grey-dark">// Hasilnya : Blog Number 1</span>
+<a href="http://127.0.0.1:5000/blog/1">http://127.0.0.1:5000/blog/1</a>
+
+<span class="text-grey-dark">// Salah karena seperti ini</span>
+<a href="http://127.0.0.1:5000/blog/tutorial">http://127.0.0.1:5000/blog/tutorial</a>
+          </code>
+        </pre>
+        <p>Nah sekarang kita coba dengan tipe data yang lain misalanya kita membuat route seperti ini :</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+@app.route('/rev/<float:revNo>')
+def revision(revNo):
+   return 'Revision Number %f' % revNo
+          </code>
+        </pre>
+        <p>Maka seperti rule nya :</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+<span class="text-grey-dark">// Benar karena menggunakan type variable float pada revNo</span>
+<span class="text-grey-dark">// Hasilnya : Revision Number 1.200000</span>
+<a href="http://127.0.0.1:5000/rev/1.2">http://127.0.0.1:5000/rev/1.2</a>
+
+<span class="text-grey-dark">// Salah jika seperti ini</span>
+<a href="http://127.0.0.1:5000/rev/12">http://127.0.0.1:5000/rev/12</a>
+          </code>
+        </pre>
+        <h1>Http Method</h1>
+        <p>Dalam membangun web kita menggunakan protokol http untuk transformasi data, pada protocol http ini terdapat beberapa method yang bisa kita gunakan untuk type routing pada aplikasi kita.</p>
+        <table class="w-full my-2 cursor-pointer ">
+          <tr class="bg-blue-light text-white font-hairline">
+            <td class="px-4 py-2">No</td>
+            <td class="px-4">Nama</td>
+            <td class="px-4">Keterangan</td>
+          </tr>
+          <tr class="bg-blue-lighter hover:bg-blue-light">
+            <td class="px-4 py-1">1</td>
+            <td class="px-4">GET</td>
+            <td class="px-4">Method get berguna untuk meminta data dari server untuk di berikan ke user.</td>
+          </tr>
+          <tr class="bg-blue-lightest hover:bg-blue-light">
+            <td class="px-4 py-2">2</td>
+            <td class="px-4">HEAD</td>
+            <td class="px-4">Hampir mirip seperti method akan tetapi tidak ada response.</td>
+          </tr>
+          <tr class="bg-blue-lighter hover:bg-blue-light">
+            <td class="px-4 py-2">3</td>
+            <td class="px-4">POST</td>
+            <td class="px-4">Method post berguna untuk mengirimkan data dari user ke server.</td>
+          </tr>
+          <tr class="bg-blue-lightest hover:bg-blue-light">
+            <td class="px-4 py-2">2</td>
+            <td class="px-4">PUT</td>
+            <td class="px-4">Method put ini juga hampir mirip dengan post akan tetapi kalau di post itu bertujuan untuk menambahkan database, kalau dengan put maka kita akan mereplace data yang sudah ada atau mengupdate data.</td>
+          </tr>
+          <tr class="bg-blue-lighter hover:bg-blue-light">
+            <td class="px-4 py-2">4</td>
+            <td class="px-4">DELETE</td>
+            <td class="px-4">Method delete berguna untuk meminta server menghapus data tertentu oleh user.</td>
+          </tr>
+        </table>
+        <p>Nah berikut ini adalah cara mengimplementasikan routing http method pada aplikasi flask. Secara default http method dari route pada flask ini adalah GET, akan tetapi jika kita ingin merubahnya bisa dengan memberi nilai variable methods pada route.</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+@app.route('/login', methods=['POST'])
+def index():
+  return "You have logined."
+
+@app.route('/login', methods=['GET'])
+def index():
+  return "Login please."
+          </code>
+        </pre>
+        <p>Dari contoh diatas kita juga bisa jadikan lebih sederhana mendjadi seperti ini :</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+from flask import request
+
+@app.route('/login', methods=['GET','POST'])
+def index():
+  if request.method == 'POST'
+    return "You have logined."
+  return "Login please."
+          </code>
+        </pre>
+        <p>Hal yang penting di pahami dari penggunaan http method ini adalah seperti, jika ingin mengambil data menggunakan <span class="font-bold">GET</span>, jika ingin menambahkan data maka dengan <span class="font-bold">POST</span>, ingin merubah data dengan <span class="font-bold">PUT</span> dan untuk mengghapus data menggunakan <span class="font-bold">DELETE</span>.</p>
+        <h1></h1>
+        <h3>Next</h3>
+        <a href="../tutorial/flask-static-files.html" class="no-underline">
+          <div class="bg-blue-lightest border-t border-b border-blue text-blue-dark px-4 py-3" role="alert">
+            <p class="font-bold">Selanjutnya - Flask Static Files</p>
+            <p class="text-sm">Mengakses statik file atau file yang tidak berubah.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <div class="flex justify-center bg-blue py-4">
+    <p class="text-white font-light">© 2017 Codecast.id</p>
+  </div>
+</body>
+</html>

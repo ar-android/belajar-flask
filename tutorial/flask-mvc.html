@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Flask MVC - Belajar Flask</title><!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i" rel="stylesheet"><!-- Style -->
+  <link href="https://ar-android.github.io/belajar-flask/dist.css" rel="stylesheet" type="text/css">
+</head>
+<body class="bg-white font-source-sans">
+  <header class="bg-white py-4 px-8 border-b-4 border-blue">
+    <div class="lg:w-3/5 xs:w-full container mx-auto flex justify-between items-center">
+      <div class="border border-transparent">
+        <a class="text-2xl font-thin text-grey-darker tracking-wide no-underline" href="../">Belajar Flask</a>
+      </div>
+      <div class="sm:block md:hidden lg:hidden">
+        <svg class="fill-current text-black inline-block h-6 w-6" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg>
+      </div>
+      <div class="xs:hidden sm:hidden md:block">
+        <a class="text-sm font-thin mr-6 no-underline text-black hover:text-blue" href="../about.html">About</a>
+        <a class="text-sm font-thin mr-6 no-underline text-black hover:text-blue" href="../hire-me.html">Hire Me</a>
+      </div>
+    </div>
+  </header>
+  <section class="py-8 bg-white flex justify-center">
+    <div class="sm:w-4/5 lg:w-3/5 xs:w-full">
+      <div class="xs:px-4 xs:flex-row md:flex lg:flex items-center">
+        <div class="xs:flex items-center justify-center">
+          <img class="rounded-full" height="70" src="https://cdn-images-1.medium.com/fit/c/60/60/1*tTlJFOCGwUwKxBvUm9z1ZA.jpeg" width="70dp">
+        </div>
+        <div class="xs:text-center xs:mt-4 lg:text-left sm:text-left sm:px-4 lg:m-0">
+          <h3 class="py-0">Ahmad Rosid</h3>
+          <p class="text-grey-darker text-sm font-thin py-1">https://ahmadrosid.com The more I learn, the more I realize how much I don’t know.</p>
+          <p class="text-grey-darker text-sm font-thin py-0">May 28, 2018</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-blue flex justify-center py-8 lg:px-4 xs:px-0 text-center">
+    <div class="w-full text-white my-8 py-8">
+      <h1 class="text-5xl font-sans text-center">Flask MVC</h1>
+      <div class="flex justify-center mb-8">
+        <div class="my-2 w-24 border border-white border-t-2"></div>
+      </div>
+      <p class="text-2xl font-sans text-center">Model View Controller Pada Flask.</p>
+    </div>
+  </section>
+
+  <section class="bg-white flex justify-center py-8 text-grey-darkest">
+    <div class="md:w-4/5 lg:w-3/5 xs:w-full sm:px-4 xs:px-4 lg:px-2">
+      <div class="text-lg font-light leading-normal">
+        <h1 id="mvc-design-pattern">MVC Design Pattern</h1>
+        <p>Pada tutorial sebelumnya kita sudah bahas tentang routing pada aplikasi flask, kali ini kita akan beranjak sedikit tentang software design pattern.</p>
+        <a href="../tutorial/flask-routing.html" class="no-underline">
+          <div class="bg-blue-lightest border-t border-b border-blue text-blue-dark px-4 py-3 my-6" role="alert">
+            <p class="font-bold">Sebelumnya ( Flask Routing )</p>
+            <p class="text-sm">Memahami routing pada flask</p>
+          </div>
+        </a>
+        <p>Dalam membuat sebuah sebuah aplikasi tentu kita perlu memikirkan architecture pattern yang akan kita gunakan, tujuanya adalah ketika aplikasi kasi ita semakin kompleks maka kita tidak mengalami kesulitan untuk mengatur kodenya. Nah pada kesempatan kali ini kita akan sedikit bahas tentang architecture MVC.</p>
+        <br>
+        <p>Nah apa sih sebenarnya design patter dan MVC itu? Bagi kamu yang masih pemula mungkin akan sedikit mengalami kebingunan dengan istilah design pattern, simple gini design pattern ini adalah sebuah kosep atau tehnik yang kita terapkan dalam membuat sebuah aplikasi. MVC sendiri adalah singkatan dari ( Model View Controller ) yaitu sebuah cara atau pola yang digunakan dalam mebuat aplikasi.</p>
+        <br>
+        <p>Berbicara masalah MVC design pattern maka kita perlu mengetahui tiga hal atau tiga kata kunci ini :</p>
+        <ul class="leading-normal my-4">
+          <li><span class="font-bold">Model</span> Adalah cara kita mengolah data.</li>
+          <li><span class="font-bold">View</span> Adalah cara membuat user interface atau tampilan dari sebuah aplikasi.</li>
+          <li><span class="font-bold">Controller</span> Adalah tempat melakukan proses yang cukup rumit dari aplikasi kita.</li>
+        </ul>
+        <p>Yang perlu di kathui inti dari MVC adalah ketika kita mengurusi data seperti menambah, merubah, atau menghapus maka proses itu dilakukan pada mode. Sedangkan jika kita akan mengurusi proses yang cukup kompleks misalanya melakukan proses matematika atau apapun yang melakukan proses kompleks maka dilakukan pada controller. Terakhir ketika kita mengurusi tampilan ini dilakukan pada views.</p>
+        <h1 id="mvc-on-flask">MVC on Flask</h1>
+        <p>Ok sekarang bagaimana kita melakukan MVC pada aplikasi flask? Well, pada aplikasi flask agak sedikit perbedaan penamaan. Yang paling mencolok nanti adalah ketika kita ingin mengurusi view maka disini kita menggunakan templates mungkin jika kamu sudah pernah menggunakan ruby on rails, atau laravel akan sedikit mengalami kebingunan tapia jangan di hiraukan ini cuman permasalahan penamaan saja.</p>
+        <br>
+        <p>Nah berikut ini adalah contoh aplikasi yang tidak mengimplementasikan MVC.</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+from flask import Flask
+app = Flask(__name__)
+
+def index():
+  return "Hello world."
+app.add_url_rule('/', 'index', index)
+
+app.run()
+          </code>
+        </pre>
+        <p>Sekilan kayaknya nggak masalah ya dengan itu, simple dan juga jelas. Akan tetapi permasalahaya adalah bagaimana kalau kita memilii 100 type route dan 100 prosess yang berbeda yang cukup kompleks. Masih bisa di buat, tapi itu akan membuat kode yang kita tulis didalam satu file akan menjadi cukup banyak dan akan membuat kita mengalami kesulitan untuk melakukan debugging jika terjadi error.</p>
+        <br>
+        <p>Nah sekarang kita mulai dengan struktur project terlebih dahulu :</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+|---project-flask
+    |---app
+        |---__init__.py
+        |---models.py
+        |---cores
+            |---__init__.py
+            |---admin
+                |---__init__.py
+                |---controller.py
+                |---route.py
+            |---auth
+                |---__init__.py
+                |---controller.py
+                |---route.py
+        |---static
+            |---app.css
+            |---app.js
+        |---templates
+            |---auth
+            |---admin
+            |---index.html
+    |---migrations
+    |---tests
+    |---config.py
+    |---run.py
+          </code>
+        </pre>
+        <p>Diatas adalah contoh struktur project aplikasi yang akan kita buat dengan flask, kita bahas satu per satu struktur nya.</p>
+        <table class="w-full my-4">
+          <tr class="bg-blue text-white">
+            <td class="px-4 py-2">#</td>
+            <td class="px-6">Folder</td>
+            <td class="px-8">Keterangan</td>
+          </tr>
+          <tr class="bg-blue-lighter">
+            <td class="px-4 py-2">1</td>
+            <td class="px-6">app</td>
+            <td class="px-8">Pada folder app ini akan digunakan untuk menaruh segala file yang akan kita buat</td>
+          </tr>
+          <tr class="bg-blue-lightest">
+            <td class="px-4 py-2">2</td>
+            <td class="px-6">migrations</td>
+            <td class="px-8">Pada folder migration ini sebenarnya akan di generate otomatis yang mana nanti disini isinya adalah file - file untuk migration database</td>
+          </tr>
+          <tr class="bg-blue-lighter">
+            <td class="px-4 py-2">3</td>
+            <td class="px-6">tests</td>
+            <td class="px-8">Pada folder test berisi file - file yang kita gunakan untuk unit testing</td>
+          </tr>
+          <tr class="bg-blue-lightest">
+            <td class="px-4 py-2">4</td>
+            <td class="px-6">app/cores</td>
+            <td class="px-8">Pada folder app/cores ini akan berisi modul - model dari aplikasi yang akan kita tulis.</td>
+          </tr>
+          <tr class="bg-blue-lighter">
+            <td class="px-4 py-2">5</td>
+            <td class="px-6">app/cores/admin</td>
+            <td class="px-8">Pada folder app/cores/admin contoh dari module admin.</td>
+          </tr>
+          <tr class="bg-blue-lightest">
+            <td class="px-4 py-2">6</td>
+            <td class="px-6">app/cores</td>
+            <td class="px-8">Pada folder app/cores/auth ini adalah contoh module Authentication.</td>
+          </tr>
+          <tr class="bg-blue-lighter">
+            <td class="px-4 py-2">7</td>
+            <td class="px-6">app/static</td>
+            <td class="px-8">Pada folder app/static ini digunakan untuk file static atau yang tidak berubah secara dinamis, seperti gambar, file css, file js dan yang lainya.</td>
+          </tr>
+          <tr class="bg-blue-lightest">
+            <td class="px-4 py-2">8</td>
+            <td class="px-6">app/template</td>
+            <td class="px-8">Pada folder app/templates ini digunakan untuk menaruh file html untuk aplikasi.</td>
+          </tr>
+        </table>
+        <h3>Next</h3>
+        <a href="../tutorial/flask-routing.html" class="no-underline">
+          <div class="bg-blue-lightest border-t border-b border-blue text-blue-dark px-4 py-3" role="alert">
+            <p class="font-bold">Selanjutnya - Flask Routing</p>
+            <p class="text-sm">Bagaimana memproses url pada flask.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <div class="flex justify-center bg-blue py-4">
+    <p class="text-white font-light">© 2017 Codecast.id</p>
+  </div>
+</body>
+</html>
